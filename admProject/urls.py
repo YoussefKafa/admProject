@@ -20,7 +20,12 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.conf.urls import url, include
 from naiveBayesCode import *
-
+@api_view(['GET'])
+def hello_main(request):
+                return Response({ "result": "hi"})
+urlpatterns = [
+  url(r'^/$', hello_main),
+]
 @api_view(['POST'])
 def hello_world(request):
                 body_unicode=request.body.decode('utf-8')
